@@ -1,4 +1,6 @@
-# React + Vite
+# MacOS Portfolio
+
+![MacOS Portfolio Screenshot](https://github.com/user-attachments/assets/27cfb2eb-656f-4e39-a044-e55c06e3bb92 "MacOS Portfolio Screenshot")
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
