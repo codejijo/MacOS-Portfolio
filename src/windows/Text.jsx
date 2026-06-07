@@ -43,6 +43,9 @@ const Text = () => {
     )
 }
 
-const TextWindow = WindowWrapper(Text, 'txtfile');
+const TextWindow = WindowWrapper(Text, 'txtfile', {
+    leftText: "Home",
+    centerText: "Note"
+});
 
 export default TextWindow;

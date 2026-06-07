@@ -1,6 +1,7 @@
 import { WindowControls } from "@components";
 import { socials } from "@constants";
 import WindowWrapper from "@layout/WindowWrapper"
+import { Plus } from "lucide-react";
 
 
 const Contact = () => {
@@ -40,6 +41,10 @@ const Contact = () => {
     )
 }
 
-const ContactWindow = WindowWrapper(Contact, 'contact');
+const ContactWindow = WindowWrapper(Contact, 'contact', {
+    leftText: "Lists",
+    centerText: "Contacts",
+    rightContent: <Plus className="w-6 h-6 text-blue-500" />
+});
 
 export default ContactWindow;

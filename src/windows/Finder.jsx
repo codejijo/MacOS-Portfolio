@@ -4,7 +4,7 @@ import WindowWrapper from "@layout/WindowWrapper"
 import useLocationStore from "@store/location"
 import useWindowStore from "@store/window"
 import clsx from "clsx"
-import { Search } from "lucide-react"
+import { Search, MoreHorizontal } from "lucide-react"
 
 const Finder = () => {
 
@@ -43,7 +43,7 @@ const Finder = () => {
       </div>
 
       <div className="bg-white flex h-full">
-        <div className="sidebar">
+        <div className="sidebar max-sm:hidden">
           <div>
             <h3>Favorites</h3>
             <ul>
@@ -75,6 +75,10 @@ const Finder = () => {
   )
 }
 
-const FinderWindow = WindowWrapper(Finder, "finder");
+const FinderWindow = WindowWrapper(Finder, "finder", {
+  leftText: "Browse",
+  centerText: "Portfolio",
+  rightContent: <span className="bg-gray-100 p-1 rounded-full"><MoreHorizontal className="w-5 h-5 text-blue-500" /></span>
+});
 
 export default FinderWindow;

@@ -39,6 +39,14 @@ const Resume = () => {
     )
 }
 
-const ResumeWindow = WindowWrapper(Resume, 'resume');
+const ResumeWindow = WindowWrapper(Resume, 'resume', {
+    leftText: "Home",
+    centerText: "Resume.pdf",
+    rightContent: (
+        <a href="files/resume.pdf" download title="Download Resume">
+            <Download className="w-5 h-5 text-blue-500" />
+        </a>
+    )
+});
 
 export default ResumeWindow;

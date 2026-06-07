@@ -33,6 +33,9 @@ const Photo = () => {
     )
 }
 
-const PhotoWindow = WindowWrapper(Photo, 'imgfile')
+const PhotoWindow = WindowWrapper(Photo, 'imgfile', {
+    leftText: "Home",
+    centerText: "Image"
+})
 
 export default PhotoWindow;

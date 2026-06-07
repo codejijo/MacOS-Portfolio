@@ -21,7 +21,7 @@ const Gallery = () => {
             </div>
 
             <div className="flex w-full">
-                <div className="sidebar">
+                <div className="sidebar max-sm:hidden">
                     <h2>Photos</h2>
 
                     <ul>
@@ -58,6 +58,10 @@ const Gallery = () => {
     )
 }
 
-const GalleryWindow = WindowWrapper(Gallery, 'photos')
+const GalleryWindow = WindowWrapper(Gallery, 'photos', {
+    leftText: "Albums",
+    centerText: "Photos",
+    rightContent: <span className="text-blue-500 font-medium text-[15px]">Select</span>
+})
 
 export default GalleryWindow;

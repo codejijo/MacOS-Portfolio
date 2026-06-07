@@ -1,7 +1,7 @@
 import { WindowControls } from "@components"
 import { blogPosts } from "@constants"
 import WindowWrapper from "@layout/WindowWrapper"
-import { ChevronLeft, ChevronRight, Copy, MoveRight, PanelLeft, Plus, Search, Share, ShieldHalf } from "lucide-react"
+import { ChevronLeft, ChevronRight, Copy, LayoutGrid, MoveRight, PanelLeft, Plus, RotateCw, Search, Share, ShieldHalf } from "lucide-react"
 
 const Safari = () => {
     return (
@@ -41,7 +41,7 @@ const Safari = () => {
                 <h2>My Developer Blog</h2>
 
                 <div className="space-y-8">
-                    {blogPosts.map(({id, image, title, date, link}) => (
+                    {blogPosts.map(({ id, image, title, date, link }) => (
                         <div key={id} className="blog-post">
                             <div className="col-span-2">
                                 <img src={image} alt={title} />
@@ -62,6 +62,21 @@ const Safari = () => {
     )
 }
 
-const SafariWindow = WindowWrapper(Safari, "safari")
+const SafariWindow = WindowWrapper(Safari, "safari", {
+    hideBackIcon: false,
+    leftText: " ",
+    centerContent: (
+        <div className="flex flex-col items-center leading-tight">
+            <span className="text-[10px] text-gray-500 uppercase tracking-wider">Secure</span>
+            <span className="text-[15px] font-medium text-black">jijo.dev</span>
+        </div>
+    ),
+    rightContent: (
+        <div className="flex gap-4 items-center mr-2">
+            <RotateCw className="w-5 h-5 text-blue-500" />
+            <LayoutGrid className="w-5 h-5 text-blue-500" />
+        </div>
+    )
+});
 
 export default SafariWindow;

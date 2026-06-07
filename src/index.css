@@ -39,16 +39,30 @@ body {
   nav {
     @apply flex justify-between items-center bg-white/50 backdrop-blur-3xl p-2 px-5 select-none;
 
+    @media (max-width: 640px) {
+      @apply bg-transparent absolute w-full top-0 z-40 px-6 py-2 backdrop-blur-none;
+    }
+
     div {
-      @apply flex items-center max-sm:w-full max-sm:justify-center gap-5;
+      @apply flex items-center gap-5;
+
+      @media (max-width: 640px) {
+        @apply w-full justify-center;
+      }
 
       &:last-child {
-        @apply max-sm:hidden;
+        @media (max-width: 640px) {
+          @apply hidden;
+        }
       }
     }
 
     ul {
-      @apply flex items-center gap-5 max-sm:hidden;
+      @apply flex items-center gap-5;
+
+      @media (max-width: 640px) {
+        @apply hidden;
+      }
 
       p {
         @apply text-sm cursor-pointer hover:underline transition-all;
@@ -67,7 +81,11 @@ body {
   }
 
   #welcome {
-    @apply text-gray-200 flex flex-col justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none max-sm:h-screen max-sm:w-full max-sm:px-10;
+    @apply text-gray-200 flex flex-col justify-center items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 select-none;
+
+    @media (max-width: 640px) {
+      @apply h-screen w-full px-10;
+    }
 
     .small-screen {
       @apply sm:hidden m-7 bg-red-300/20 backdrop-blur-lg p-3 rounded-md absolute top-10;
@@ -79,21 +97,41 @@ body {
   }
 
   #dock {
-    @apply absolute bottom-5 left-1/2 -translate-x-1/2 z-50 select-none max-sm:hidden;
+    @apply absolute bottom-5 left-1/2 -translate-x-1/2 z-50 select-none;
+
+    @media (max-width: 640px) {
+      @apply w-full px-4 bottom-4;
+    }
 
     .dock-container {
       @apply bg-white/20 backdrop-blur-md justify-between rounded-2xl p-1.5 flex items-end gap-1.5;
+
+      @media (max-width: 640px) {
+        @apply rounded-[32px] p-4 bg-white/30 mx-auto w-full max-w-md justify-around items-center;
+      }
     }
 
     .tooltip {
       @apply !py-1 !px-3 !w-fit !text-center !text-xs !rounded-md !bg-blue-200 !text-blue-900 !shadow-2xl;
+
+      @media (max-width: 640px) {
+        @apply hidden;
+      }
     }
 
     .dock-icon {
       @apply size-14 3xl:size-20 cursor-pointer;
 
+      @media (max-width: 640px) {
+        @apply size-[3.2rem] transition-transform active:scale-95;
+      }
+
       img {
         @apply object-cover object-center;
+
+        @media (max-width: 640px) {
+          @apply rounded-xl;
+        }
       }
     }
   }
@@ -116,6 +154,30 @@ body {
 
   #window-header {
     @apply flex items-center justify-between px-4 py-3 rounded-t-lg bg-gray-50 border-b border-gray-200 select-none text-sm text-gray-400;
+
+    @media (max-width: 640px) {
+      @apply hidden;
+    }
+  }
+
+  #mobile-header {
+    @apply hidden w-full px-4 h-12 flex items-center justify-between border-b border-gray-200 bg-white/80 backdrop-blur-md select-none sticky top-0 z-[100];
+
+    @media (max-width: 640px) {
+      @apply flex;
+    }
+
+    .left-action {
+      @apply flex items-center text-blue-500 font-medium text-[15px] cursor-pointer active:opacity-50 transition-opacity gap-0.5 min-w-[33%];
+    }
+
+    .center-title {
+      @apply text-[15px] font-semibold text-black truncate text-center flex-1 w-full;
+    }
+
+    .right-action {
+      @apply flex items-center text-blue-500 justify-end min-w-[33%];
+    }
   }
 
   #safari {
@@ -336,8 +398,18 @@ body {
     .content {
       @apply flex-1 p-8 bg-white max-w-2xl relative;
 
+      @media (max-width: 640px) {
+        @apply flex flex-wrap content-start items-start gap-6 overflow-y-auto;
+      }
+
       li {
         @apply absolute flex items-center flex-col gap-3;
+
+        @media (max-width: 640px) {
+          position: relative !important;
+          inset: auto !important;
+          @apply w-24;
+        }
 
         img {
           @apply object-contain object-center size-16 relative group-hover:scale-105;
@@ -381,18 +453,56 @@ body {
   }
 
   #home {
-    @apply relative z-0 max-sm:hidden;
+    @apply relative z-0;
+
+    @media (max-width: 640px) {
+      @apply absolute inset-0 pt-16 px-6;
+    }
 
     ul {
+      @media (max-width: 640px) {
+        @apply flex flex-wrap gap-x-6 gap-y-6 justify-start;
+      }
+
       li {
         @apply absolute z-0 select-none flex items-center flex-col;
 
+        @media (max-width: 640px) {
+          @apply relative !inset-auto !transform-none w-[4.5rem] gap-1.5 p-0;
+        }
+
         img {
-          @apply group-hover:bg-gray-950/10 p-1 rounded-md;
+          @apply p-1 rounded-md;
+
+          @media (max-width: 640px) {
+            @apply size-16 p-0 rounded-2xl shadow-sm object-cover bg-transparent;
+          }
         }
 
         p {
-          @apply text-sm text-white text-center px-1 rounded-md group-hover:bg-blue-500 transition-colors max-w-40;
+          @apply text-sm text-white text-center px-1 rounded-md transition-colors max-w-40;
+
+          @media (max-width: 640px) {
+            @apply text-[11px] leading-tight font-medium bg-transparent w-full overflow-hidden text-ellipsis whitespace-nowrap;
+          }
+        }
+
+        &:hover {
+          img {
+            @apply bg-gray-950/10;
+
+            @media (max-width: 640px) {
+              @apply bg-transparent;
+            }
+          }
+
+          p {
+            @apply bg-blue-500;
+
+            @media (max-width: 640px) {
+              @apply bg-transparent;
+            }
+          }
         }
       }
     }

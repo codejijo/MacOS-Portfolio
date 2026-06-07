@@ -53,6 +53,9 @@ const Terminal = () => {
     )
 }
 
-const TerminalWindow = WindowWrapper(Terminal, 'terminal');
+const TerminalWindow = WindowWrapper(Terminal, 'terminal', {
+    leftText: "Home",
+    centerText: "Tech Stack"
+});
 
 export default TerminalWindow;

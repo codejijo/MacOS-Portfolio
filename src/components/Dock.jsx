@@ -1,5 +1,6 @@
 import { dockApps } from "@constants"
 import { useGSAP } from "@gsap/react";
+import clsx from "clsx";
 import useWindowStore from "@store/window";
 import gsap from "gsap";
 import { useRef } from "react"
@@ -12,7 +13,7 @@ const Dock = () => {
     useGSAP(() => {
 
         const dock = dockRef.current;
-        if (!dock) return () => { };
+        if (!dock || window.innerWidth <= 640) return () => { };
 
         const icons = dock.querySelectorAll(".dock-icon");
 
@@ -70,8 +71,8 @@ const Dock = () => {
     return (
         <section id="dock">
             <div className="dock-container" ref={dockRef}>
-                {dockApps.map(({ id, name, icon, canOpen }) => (
-                    <div key={`Dock-${name}-item`} className="relative flex justify-center">
+                {dockApps.map(({ id, name, icon, canOpen, inIOSDock, iosIcon }) => (
+                    <div key={`Dock-${name}-item`} className={clsx("relative flex justify-center", !inIOSDock && "max-[640px]:hidden")}>
                         <button
                             type="button"
                             className="dock-icon"
@@ -82,7 +83,7 @@ const Dock = () => {
                             disabled={!canOpen}
                             onClick={() => toggleApp({ id, canOpen })}
                         >
-                            <img src={`/images/${icon}`} alt={name} loading="lazy" className={canOpen ? "" : "opacity-60"} />
+                            <img src={(window.innerWidth <= 640 && iosIcon) ? iosIcon : `/images/${icon}`} alt={name} loading="lazy" className={canOpen ? "" : "opacity-60"} />
                         </button>
                     </div>
                 ))}
