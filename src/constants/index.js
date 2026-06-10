@@ -147,14 +147,14 @@ const socials = [
     text: "Platform",
     icon: "/icons/atom.svg",
     bg: "#4bcb63",
-    link: "https://jsmastery.com/",
+    link: "https://jijojohn.com/",
   },
   {
     id: 3,
-    text: "Twitter/X",
-    icon: "/icons/twitter.svg",
+    text: "Instagram",
+    icon: "/icons/instagram.svg",
     bg: "#ff866b",
-    link: "https://x.com/jsmasterypro",
+    link: "https://www.instagram.com/its_jijo/",
   },
   {
     id: 4,
@@ -405,7 +405,7 @@ const ABOUT_LOCATION = {
       kind: "file",
       fileType: "img",
       position: "top-10 left-5",
-      imageUrl: "https://avatars.githubusercontent.com/u/67582157?v=4",
+      imageUrl: "/images/jijo.jpg",
     },
     {
       id: 2,
@@ -433,7 +433,7 @@ const ABOUT_LOCATION = {
       fileType: "txt",
       position: "top-60 left-5",
       subtitle: "Meet the Developer Behind the Code",
-      image: "https://avatars.githubusercontent.com/u/67582157?v=4",
+      image: "/images/jijo.jpg",
       description: [
         "Hey! I’m Jijo 👋, a web developer who enjoys building sleek, interactive websites that actually work well.",
         "I specialize in JavaScript, React, and Next.js—and I love making things feel smooth, fast, and just a little bit delightful.",

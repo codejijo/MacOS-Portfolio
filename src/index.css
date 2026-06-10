@@ -43,32 +43,6 @@ body {
       @apply bg-transparent absolute w-full top-0 z-40 px-6 py-2 backdrop-blur-none;
     }
 
-    div {
-      @apply flex items-center gap-5;
-
-      @media (max-width: 640px) {
-        @apply w-full justify-center;
-      }
-
-      &:last-child {
-        @media (max-width: 640px) {
-          @apply hidden;
-        }
-      }
-    }
-
-    ul {
-      @apply flex items-center gap-5;
-
-      @media (max-width: 640px) {
-        @apply hidden;
-      }
-
-      p {
-        @apply text-sm cursor-pointer hover:underline transition-all;
-      }
-    }
-
     time {
       @apply text-sm font-medium text-black;
     }
@@ -179,6 +153,35 @@ body {
       @apply flex items-center text-blue-500 justify-end min-w-[33%];
     }
   }
+
+  .mobile-ios-status {
+    @apply hidden items-center justify-between w-full px-1 text-white font-semibold text-sm select-none;
+
+    @media (max-width: 640px) {
+      @apply flex;
+    }
+
+    .status-icons {
+      @apply flex items-center gap-1.5;
+    }
+  }
+
+  .desktop-nav {
+    @apply flex items-center gap-5;
+
+    @media (max-width: 640px) {
+      @apply hidden;
+    }
+
+    ul {
+      @apply flex items-center gap-5;
+
+      p {
+        @apply text-sm cursor-pointer hover:underline transition-all;
+      }
+    }
+  }
+
 
   #safari {
     @apply w-4xl absolute top-40 left-2/12 bg-white shadow-2xl drop-shadow-2xl rounded-xl overflow-hidden;
